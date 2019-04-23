@@ -34,13 +34,13 @@ parameters:
       Name of environment variable storing your CircleCI API token,
       defaults to CIRCLE_TOKEN
 
-  ssh-fingerprints:
-    type: string
-    description: >
-      Fingerprints for SSH deploy key (add the public key as a read/write
-      key on GitHub; add the private key in CircleCI via SSH Permissions,
-      with github.com as Hostname). Used to push a git tag back to the
-      project's repository.
+  # ssh-fingerprints:
+  #   type: string
+  #   description: >
+  #     Fingerprints for SSH deploy key (add the public key as a read/write
+  #     key on GitHub; add the private key in CircleCI via SSH Permissions,
+  #     with github.com as Hostname). Used to push a git tag back to the
+  #     project's repository.
 
   tag:
     type: enum
@@ -94,9 +94,9 @@ steps:
         - attach_workspace:
             at: <<parameters.workspace-root>>
 
-  - add_ssh_keys:
-      fingerprints:
-        - <<parameters.ssh-fingerprints>>
+  # - add_ssh_keys:
+  #     fingerprints:
+  #       - <<parameters.ssh-fingerprints>>
 
   - run:
       name: git config
