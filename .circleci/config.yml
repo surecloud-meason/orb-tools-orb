@@ -71,9 +71,9 @@ workflows:
           requires:
             - pack-validate
 
-      - orb-tools/trigger-integration-workflow:
+      - orb-tools-alpha/trigger-integration-workflow:
           name: trigger-integration-dev
-          ssh-fingerprints: 33:d9:6e:a7:b2:ba:eb:90:7b:7a:dc:90:36:e1:b6:e0
+          # ssh-fingerprints: 33:d9:6e:a7:b2:ba:eb:90:7b:7a:dc:90:36:e1:b6:e0
           cleanup-tags: true
           requires:
             - publish-dev
@@ -81,9 +81,9 @@ workflows:
             branches:
               ignore: master
 
-      - orb-tools/trigger-integration-workflow:
+      - orb-tools-alpha/trigger-integration-workflow:
           name: trigger-integration-master
-          ssh-fingerprints: 33:d9:6e:a7:b2:ba:eb:90:7b:7a:dc:90:36:e1:b6:e0
+          # ssh-fingerprints: 33:d9:6e:a7:b2:ba:eb:90:7b:7a:dc:90:36:e1:b6:e0
           cleanup-tags: true
           tag: master
           requires:
