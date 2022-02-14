@@ -21,6 +21,7 @@ Result() {
         exit 1
     else
         echo "Pipeline triggered!"
+        echo "👋"
         echo "${CIRCLECI_APP_HOST}/pipelines/${VCS_TYPE}/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/$(cat /tmp/curl-result.txt | jq -r .number)"
     fi
 }
