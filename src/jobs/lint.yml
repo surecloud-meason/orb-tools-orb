@@ -3,6 +3,14 @@ description: |
 
 docker:
   - image: cimg/python:3.10.2
+resource_class: << parameters.resource_class >>
+
+parameters:
+  resource_class:
+    description: Support setting / overriding executor resource class
+    type: enum
+    enum: ["small", "medium", "medium+", "large", "xlarge", "2xlarge", "2xlarge+"]
+    default: "small"
 
 steps:
   - checkout

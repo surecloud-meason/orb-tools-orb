@@ -10,8 +10,12 @@ parameters:
     description: The orb output directory. The orb will be named "orb.yml" in this directory and persisted to the workspace. Path must be absolute or relative to the working directory.
     type: string
     default: ./dist/
+  executor:
+    description: The name of custom executor to use
+    type: executor
+    default: cli/default
 
-executor: cli/default
+executor: << parameters.executor >>
 
 steps:
   - checkout

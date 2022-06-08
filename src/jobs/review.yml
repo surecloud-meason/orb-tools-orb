@@ -10,9 +10,15 @@ parameters:
       Example: "RC001,RC002"
     type: string
     default: ""
+  resource_class:
+    description: Support setting / overriding executor resource class
+    type: enum
+    enum: ["small", "medium", "medium+", "large", "xlarge", "2xlarge", "2xlarge+"]
+    default: "small"
 
 docker:
   - image: cimg/base:current
+resource_class: << parameters.resource_class >>
 
 steps:
   - checkout

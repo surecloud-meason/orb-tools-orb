@@ -2,7 +2,7 @@ description: |
   Publish a new version of your orb.
   This job will produce a development version of an orb by default or will produce a new production version if the $CIRCLE_TAG environment variable is , and the "pub-type" parameter is set to "production".
 
-executor: cli/default
+executor: << parameters.executor >>
 
 parameters:
   orb-name:
@@ -50,6 +50,11 @@ parameters:
       - dev
       - production
     default: "dev"
+  executor:
+    description: The name of custom executor to use
+    type: executor
+    default: cli/default
+
 steps:
   - attach_workspace:
       at: <<parameters.orb-dir>>
